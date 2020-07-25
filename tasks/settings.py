@@ -101,7 +101,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Default User Model:
 AUTH_USER_MODEL = 'users.ExtendedUser'
+
+# Login urls:
+LOGIN_REDIRECT_URL = 'hello'
+LOGOUT_REDIRECT_URL = 'hello'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

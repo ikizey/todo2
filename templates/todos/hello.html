@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello</title>
-</head>
+{% block content %}
 
-<body>
-    <h2>say hi!</h2>
-</body>
+{% if user.is_authenticated %}
 
-</html>
+Hi {{ user.username }}!
+<p><a href="{% url 'logout' %}">Log Out</a></p>
+
+{% else %}
+
+<p>You are not logged in</p>
+<a href="{% url 'login' %}">Log In</a> |
+<a href="{% url 'signup' %}">Sign Up</a>
+
+{% endif %}
+
+{% endblock content %}
