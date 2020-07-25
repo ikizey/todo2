@@ -10,5 +10,10 @@ class Todos(models.Model):
                              on_delete=models.CASCADE,
                              related_name='user')
 
+    class Meta:
+        ordering = ["-created"]
+        verbose_name = "TODO"
+        verbose_name_plural = "TODOS"
+
     def __str__(self):
         return self.todo
