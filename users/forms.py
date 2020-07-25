@@ -7,7 +7,7 @@ class ExtendedUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
         model = ExtendedUser
-        fields = UserCreationForm.Meta.fields
+        fields = UserCreationForm.Meta.fields + ('email',)
 
 
 class ExtendedUserChangeForm(UserChangeForm):

@@ -108,6 +108,9 @@ AUTH_USER_MODEL = 'users.ExtendedUser'
 LOGIN_REDIRECT_URL = 'hello'
 LOGOUT_REDIRECT_URL = 'hello'
 
+# Email
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
