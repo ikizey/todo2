@@ -5,6 +5,14 @@
 {% if user.is_authenticated %}
 
 Hi {{ user.username }}!
+
+<form method="POST">{% csrf_token %}
+    <div>
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+    </div>
+</form>
+
 <p><a href="{% url 'logout' %}">Log Out</a></p>
 
 {% else %}
