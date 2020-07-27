@@ -1,5 +1,4 @@
 from django.contrib.auth import get_user_model
-from django.core.exceptions import ObjectDoesNotExist
 from django.forms import inlineformset_factory
 from django.shortcuts import redirect, render
 
@@ -7,16 +6,13 @@ from .models import Todos
 
 
 def hello(request):
-    try:
-        get_user_model().objects.get(username=str(request.user))
-    except ObjectDoesNotExist:
-        return redirect('login')
-
-    return redirect('todo', str(request.user))
+    if request.user.is_authenticated:
+        return redirect('todo', str(request.user))
+    return redirect('login')
 
 
 def todo(request, user_name):
-    if str(request.user) != user_name:
+    if str(request.user) != user_name or not request.user.is_authenticated:
         return redirect('hello')
 
     template = "todos/hello.html"
